@@ -57,16 +57,25 @@ document.getElementById("change-currency").onclick = function (e) {
 
   if (currentCurrency === "$") {
     newCurrency = "₽";
-    coefficient = 80;
+    (coefficient = 77), 36;
   } else if (currentCurrency === "₽") {
     newCurrency = "BYR";
-    coefficient = 3;
+    (coefficient = 2), 52;
+  } else if (currentCurrency === "BYR") {
+    newCurrency = "¥";
+    (coefficient = 135), 74;
+  } else if (currentCurrency === "¥") {
+    newCurrency = "KWD";
+    coefficient = 0.31;
+  } else if (currentCurrency === "KWD") {
+    newCurrency = "€";
+    coefficient = 0.91;
   }
   e.target.innerText = newCurrency;
 
   for (let i = 0; i < prices.length; i++) {
     prices[i].innerHTML = `${(
       prices[i].getAttribute("data-base-price") * coefficient
-    ).toFixed(1)} ${newCurrency}`;
+    ).toFixed(2)} ${newCurrency}`;
   }
 };
